@@ -1,14 +1,16 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class Label {
+export class List{
   @PrimaryGeneratedColumn()
   id!: number;
 
   @Column()
   name!: string;
 
- 
+  @Column()
+  order!: string;
+
   @Column()
   created_at!: number;
 
