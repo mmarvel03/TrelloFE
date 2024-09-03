@@ -6,9 +6,13 @@ export class Label {
   id!: number;
 
   @Column()
-  title!: string;
+  name!: string;
+
+ 
+  @Column()
+  created_at!: number;
 
   @Column()
-  color!: string;
+  updated_at!: number;
 
 }
