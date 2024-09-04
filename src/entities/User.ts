@@ -6,27 +6,27 @@ export class User {
   id!: number;
 
   @Column()
-  firstName!: string;
+  firstName: string;
 
   @Column()
-  lastName!: string;
+  lastName: string;
 
   @Column()
-  date_of_birth!: number;
+  date_of_birth: number;
 
   @Column()
-  email!: string;
+  email: string;
 
   @Column()
-  password!: number;
+  password: number;
 
   @Column()
-  avatar_url!: string;
+  avatar_url: string;
 
   @Column()
-  created_at!: number;
+  created_at: number;
 
   @Column()
-  updated_at!: number;
+  updated_at: number;
 
 }

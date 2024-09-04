@@ -4,17 +4,17 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity()
 export class Card {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column()
-  title!: string;
+  title: string;
 
   @Column()
-  description!: string;
+  description: string;
 
   @Column()
-  created_at!: number;
+  created_at: number;
 
   @Column()
-  updated_at!: number;
+  updated_at: number;
 }
