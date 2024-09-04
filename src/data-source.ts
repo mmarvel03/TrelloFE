@@ -10,9 +10,9 @@ const AppDataSource = new DataSource({
     password: "root",
     database: "mydatabase",
     entities: [
-        "src/entity/**/*.ts"
+        "src/entities/**/*.ts"
       ],
-    synchronize: true,
+    synchronize: false,
     logging: false,
 })
 
