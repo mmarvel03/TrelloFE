@@ -1,44 +1,48 @@
-import js from "@eslint/js";
-import { Linter } from "eslint"; 
-
-const config: Linter.FlatConfig[] = [
-  js.configs.recommended,
-  {
-    languageOptions: {
-      globals: {
-        browser: true,
-        node: true,
-        es2021: true,
-      },
-    },
-    rules: {
-      "no-unused-vars": "warn",
-      "no-undef": "warn"
-    }
-  }
-];
-
-export default config;
-
-
-/*
-
-import js from "@eslint/js";
+import js from '@eslint/js'; 
+import typescript from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
+import prettier from 'eslint-config-prettier'; 
+import prettierPlugin from 'eslint-plugin-prettier'; 
+import vue from 'eslint-plugin-vue'; 
 
 export default [
-  js.configs.recommended,
   {
+  
+    files: ['**/*.vue', '**/*.js', '**/*.ts'],
+    ignores: ['node_modules/**'], 
+
     languageOptions: {
       parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module"
-      }
+        ecmaVersion: 'latest',
+        sourceType: 'module', 
+      },
+      globals: {
+        window: 'readonly', 
+        process: 'readonly', 
+      },
     },
-    rules: {
-      "no-unused-vars": "warn",
-      "no-undef": "warn"
-    }
-  }
-];
 
-*/
+    plugins: {
+      vue,
+      '@typescript-eslint': typescript,
+      prettier: prettierPlugin,
+    },
+
+    rules: {
+      ...js.configs.recommended.rules,
+
+      ...vue.configs['recommended'].rules,
+
+      ...typescript.configs['recommended'].rules,
+
+      ...prettier.rules, 
+      'prettier/prettier': 'error',  
+    },
+
+    settings: {
+      vue: {
+        version: 'detect', 
+      },
+    },
+  },
+];
