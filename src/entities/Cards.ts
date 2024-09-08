@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column,JoinColumn, ManyToOne} from 'typeorm';
+import { List } from './lists';
 
 
 @Entity()
@@ -7,14 +8,17 @@ export class Card {
   id: number;
 
   @Column()
-  title: string;
-
-  @Column()
   description: string;
 
   @Column()
-  created_at: number;
+  created_at: Date;
 
   @Column()
-  updated_at: number;
+  updated_at: Date;
+
+
+  @ManyToOne(() => List)
+  @JoinColumn()
+  list: List
 }
+
