@@ -9,7 +9,11 @@ export class CardLabel {
   id: number;
 
   @Column()
-  description: string;
+  order: string;
+
+  @Column()
+  content: string;
+
 
   @Column()
   created_at: Date;
