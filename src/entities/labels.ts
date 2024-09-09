@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column,ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column,ManyToOne,OneToMany } from 'typeorm';
 import { Workspace } from './workspace';
+import { CardLabel } from './cardLabel';
 
 @Entity()
 export class Label {
@@ -16,7 +17,8 @@ export class Label {
   @Column()
   updated_at: Date;
 
-  
+  @OneToMany(() => CardLabel,cardLabel=>cardLabel.label)
+  cardLabel: CardLabel[]
 
   @ManyToOne(()=> Workspace,workspace=>workspace.label)
   workspace:Workspace

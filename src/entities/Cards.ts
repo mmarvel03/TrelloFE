@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne,OneToMany} from 'type
 import { List } from './lists';
 import { CardUser } from './cardUser';
 import { Comments } from './comments';
+import { CardLabel } from './cardLabel';
 
 
 
@@ -12,6 +13,9 @@ export class Card {
 
   @Column()
   description: string;
+
+  @Column()
+  due_date:Date;
 
   @Column()
   created_at: Date;
@@ -27,5 +31,8 @@ export class Card {
 
   @OneToMany(() => Comments,comments=>comments.card)
   comments: Comments[]
+
+  @OneToMany(() => CardLabel,cardLabel=>cardLabel.card)
+  cardLabel: CardLabel[]
 }
 
