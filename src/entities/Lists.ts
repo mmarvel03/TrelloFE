@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
+
+
 
 @Entity()
 export class List{
@@ -12,9 +14,13 @@ export class List{
   order: string;
 
   @Column()
-  created_at: number;
+  created_at: Date ;
 
   @Column()
-  updated_at: number;
+  updated_at: Date;
+
+  @Column()
+  workspace_id: number;
 
 }
+
