@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
-
+import { Entity, PrimaryGeneratedColumn, Column,ManyToOne} from 'typeorm';
+import { Workspace } from './workspace';
 
 
 @Entity()
@@ -19,8 +19,8 @@ export class List{
   @Column()
   updated_at: Date;
 
-  @Column()
-  workspace_id: number;
 
+  @ManyToOne(()=> Workspace,workspace=>workspace.list)
+  workspace:Workspace
 }
 
