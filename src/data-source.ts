@@ -10,6 +10,8 @@ const AppDataSource = new DataSource({
   password: "root",
   database: "mydatabase",
   entities: ["src/entities/**/*.ts"],
+  migrations: ["src/migration/**/*.ts"],
+  migrationsTableName: 'typeorm_migrations',
   synchronize: false,
   logging: false,
 });
