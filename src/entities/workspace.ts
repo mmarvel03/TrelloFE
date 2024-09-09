@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column,OneToMany } from 'typeorm';
 import { Label } from './labels';
 import { List } from './lists';
-
+import{WorkspaceUsers} from './workspaceUsers'
 
 @Entity()
 export class Workspace {
@@ -28,4 +28,7 @@ export class Workspace {
 
   @OneToMany(() => List,list=>list.workspace)
   list: List[]
+
+  @OneToMany(() => WorkspaceUsers,workspaceUsers=>workspaceUsers.workspace)
+  workspaceUsers: WorkspaceUsers[]
 }
