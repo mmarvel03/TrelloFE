@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column,OneToMany } from 'typeorm';
+import { Label } from './labels';
 
 
 @Entity()
@@ -16,8 +17,12 @@ export class Workspace {
   visibility: string;
 
   @Column()
-  created_at: number;
+  created_at: Date;
 
   @Column()
-  updated_at: number;
+  updated_at: Date;
+
+  @OneToMany(() => Label,label=>label.workspace)
+  label: Label[]
+
 }
