@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column,ManyToOne } from 'typeorm';
+import { Workspace } from './workspace';
 
 @Entity()
 export class Label {
@@ -10,9 +11,14 @@ export class Label {
 
  
   @Column()
-  created_at: number;
+  created_at: Date;
 
   @Column()
-  updated_at: number;
+  updated_at: Date;
+
+  
+
+  @ManyToOne(()=> Workspace,workspace=>workspace.label)
+  workspace:Workspace
 
 }
