@@ -29,6 +29,6 @@ export class User {
   @Column()
   updated_at: Date;
 
-  @OneToMany(() => WorkspaceUsers,workspaceUsers=>workspaceUsers.workspace)
+  @OneToMany(() => WorkspaceUsers,workspaceUsers=>workspaceUsers.user)
   workspaceUsers: WorkspaceUsers[]
 }
