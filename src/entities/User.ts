@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-
+import { Entity, PrimaryGeneratedColumn, Column,OneToMany } from 'typeorm';
+import{WorkspaceUsers} from './workspaceUsers'
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -29,4 +29,6 @@ export class User {
   @Column()
   updated_at: Date;
 
+  @OneToMany(() => WorkspaceUsers,workspaceUsers=>workspaceUsers.workspace)
+  workspaceUsers: WorkspaceUsers[]
 }
