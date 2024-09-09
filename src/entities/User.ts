@@ -1,5 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column,OneToMany } from 'typeorm';
 import{WorkspaceUsers} from './workspaceUsers'
+import { CardUser } from './cardUser';
+import { Comments } from './comments';
+
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -31,4 +35,11 @@ export class User {
 
   @OneToMany(() => WorkspaceUsers,workspaceUsers=>workspaceUsers.user)
   workspaceUsers: WorkspaceUsers[]
+
+  @OneToMany(() => CardUser,cardUser=>cardUser.user)
+  cardUser: CardUser[]
+
+  @OneToMany(() => Comments,comments=>comments.user)
+  comments: Comments[]
+
 }

@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column,JoinColumn, ManyToOne} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne} from 'typeorm';
 import { List } from './lists';
 
 
@@ -16,9 +16,7 @@ export class Card {
   @Column()
   updated_at: Date;
 
-
-  @ManyToOne(() => List)
-  @JoinColumn()
+  @ManyToOne(() => List,list=>list.card)
   list: List
 }
 
