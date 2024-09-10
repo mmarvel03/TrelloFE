@@ -9,16 +9,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostCreate1725914099354 = void 0;
-class PostCreate1725914099354 {
+exports.CreateWorkspace1725957044702 = void 0;
+class CreateWorkspace1725957044702 {
     up(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.createTable(new Table({
+                name: "workspace",
+                columns: [
+                    { name: "id", type: "int", isPrimary: true, isGenerated: true, generationStrategy: "increment" },
+                    { name: "name", type: "varchar" },
+                    { name: "background_img_url", type: "varchar", isNullable: true },
+                    { name: "visibility", type: "varchar" },
+                    { name: "created_at", type: "timestamp", default: "now()" },
+                    { name: "updated_at", type: "timestamp", default: "now()" },
+                ],
+            }));
         });
     }
     down(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.dropTable("workspace");
         });
     }
 }
-exports.PostCreate1725914099354 = PostCreate1725914099354;
-//# sourceMappingURL=1725914099354-PostCreate.js.map
+exports.CreateWorkspace1725957044702 = CreateWorkspace1725957044702;
+//# sourceMappingURL=1725957044702-CreateWorkspace.js.map
